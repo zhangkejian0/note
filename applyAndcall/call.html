@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply</title>
+</head>
+<body>
+    
+</body>
+<script>
+    window.firstName = "Cynthia"; 
+    window.lastName = "_xie";
+
+    var myObject = {firstName:'my', lastName:'Object'};
+
+    function getName(){
+        console.log(this.firstName + this.lastName);
+    }
+
+    function getMessage(sex,age){
+        console.log(this.firstName + this.lastName + " 性别: " + sex + " age: " + age );
+    }
+
+    getName.call(window); // Cynthia_xie
+    getName.call(myObject); // myObject
+
+    getName.apply(window); // Cynthia_xie
+    getName.apply(myObject);// myObject
+
+    getMessage.call(window,"女",21); //Cynthia_xie 性别: 女 age: 21
+    getMessage.apply(window,["女",21]); // Cynthia_xie 性别: 女 age: 21
+
+    getMessage.call(myObject,"未知",22); //myObject 性别: 未知 age: 22
+    getMessage.apply(myObject,["未知",22]); // myObject 性别: 未知 age: 22
+</script>
+</html>

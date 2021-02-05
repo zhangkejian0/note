@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply</title>
+</head>
+<body>
+    
+</body>
+<script>
+    window.number = 'one';
+    document.number = 'two';
+
+    var s1 = {number: 'three' };
+    function changeColor(data){
+        console.log(this.number);
+    }
+
+    changeColor.apply();         //one (默认传参)
+    changeColor.apply(window);   //one
+    changeColor.apply(document); //two
+    changeColor.apply(this);     //one
+    changeColor.apply(s1, ['s1']);       //three
+</script>
+</html>
